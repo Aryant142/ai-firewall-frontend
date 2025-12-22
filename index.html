@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Firewall – Dark Pro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ✅ GSAP -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+  <!-- ✅ MAIN CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- LOCK OVERLAY (hidden by default) -->
+  <div id="locked-overlay" class="locked-overlay hidden">
+    <div class="locked-card">
+      <h2>System Locked</h2>
+      <p>Multiple critical attacks detected. Automated lock engaged.</p>
+      <button id="unlock-btn" class="traffic-btn">Unlock System</button>
+    </div>
+  </div>
+
+  <!-- ✅ SPLINE BACKGROUND -->
+  <canvas id="spline-canvas"></canvas>
+
+  <!-- ✅ TOP NAV -->
+  <nav class="top-nav">
+    <div class="logo">AI Firewall</div>
+    <div class="nav-links">
+      <button>Features</button>
+      <button>Use Cases</button>
+      <button>Dashboard</button>
+      <button class="primary">Contact</button>
+    </div>
+  </nav>
+
+  <!-- ✅ HERO SECTION -->
+  <section class="hero">
+    <div class="hero-left glass reveal">
+      <h1>AI-Driven<br>Next-Gen<br>Firewall</h1>
+      <p>Dynamic Threat Detection & Zero Trust Security</p>
+    </div>
+
+    <div class="hero-right glass reveal">
+      <p>
+        Our AI-powered firewall analyzes live traffic, detects cyber threats
+        using machine learning, automatically blocks attacks, and enforces
+        Zero Trust security across all network access points.
+      </p>
+    </div>
+
+    <div class="hero-bottom glass reveal">
+      <h3>Live Traffic Monitoring</h3>
+      <p>Scroll to explore real-time cyber security insights.</p>
+    </div>
+  </section>
+
+  <!-- ✅ LIVE TRAFFIC -->
+  <section class="section traffic-section">
+    <div class="traffic-wrapper glass">
+
+      <div class="traffic-left">
+        <h2>Live Traffic Monitor</h2>
+
+        <!-- 🔍 CONTROLS: SEARCH + FILTERS + ACTIONS -->
+        <div class="traffic-controls">
+          <input id="traffic-search" type="text" placeholder="Search IP / Protocol / Attack" />
+
+          <select id="filter-protocol">
+            <option value="">All Protocols</option>
+            <option value="TCP">TCP</option>
+            <option value="UDP">UDP</option>
+            <option value="ICMP">ICMP</option>
+          </select>
+
+          <select id="filter-status">
+            <option value="">All Status</option>
+            <option value="Allowed">Allowed</option>
+            <option value="Blocked">Blocked</option>
+          </select>
+
+          <select id="filter-attack">
+            <option value="">All Attacks</option>
+            <option value="DDoS">DDoS</option>
+            <option value="Port Scan">Port Scan</option>
+            <option value="Brute Force">Brute Force</option>
+            <option value="SQL Injection">SQL Injection</option>
+            <option value="None">No Attack</option>
+          </select>
+
+          <!-- ACTIONS -->
+          <button id="pause-btn" class="traffic-btn">⏸ Pause</button>
+          <button id="resume-btn" class="traffic-btn hidden">▶ Resume</button>
+          <button id="export-traffic" class="traffic-btn">Export Traffic CSV</button>
+          <button id="export-blocked" class="traffic-btn">Export Blocked CSV</button>
+          <button id="export-zt" class="traffic-btn">Export ZT CSV</button>
+          <button id="sound-toggle" class="traffic-btn">🔊 Sound ON</button>
+        </div>
+
+        <table class="table neon-table">
+          <thead>
+            <tr>
+              <th>Source IP</th>
+              <th>Destination IP</th>
+              <th>Protocol</th>
+              <th>Status</th>
+              <th>Attack</th>
+            </tr>
+          </thead>
+          <tbody id="traffic-log"></tbody>
+        </table>
+      </div>
+
+      <div class="traffic-right">
+        <h3>Real-Time Network Intelligence</h3>
+        <p>
+          Live Traffic Monitoring provides real-time visibility into network activity,
+          analyzing packet data to detect and block malicious threats instantly.
+        </p>
+        <p>
+          Continuous AI analysis enables automated responses to anomalies,
+          ensuring Zero Trust enforcement and system integrity.
+        </p>
+        <button class="traffic-btn">Work with Us</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ✅ THREAT DETECTION -->
+  <section class="threat-hero">
+    <div class="threat-wrapper">
+
+      <h1>Threat Detection Panel</h1>
+
+      <p class="threat-subtitle">
+        Our silent sentinels work tirelessly. Invisible protection, visible results.
+        Real-time analysis, proactive defense.
+      </p>
+
+      <div class="threat-stats">
+        <div class="threat-card">
+          <h2 id="packets">0</h2>
+          <span>Packets Analyzed</span>
+        </div>
+
+        <div class="threat-card">
+          <h2 id="attacks">0</h2>
+          <span>Attacks Detected</span>
+        </div>
+
+        <div class="threat-card">
+          <h2 id="ml">99.7</h2>
+          <span>ML Accuracy</span>
+        </div>
+
+    </div>
+  </section>
+
+  <!-- ✅ BLOCKED IP LIST -->
+  <section class="section blocked-section">
+    <div class="blocked-wrapper glass">
+
+      <div class="blocked-left">
+        <h2>Blocked IP List</h2>
+        <table class="table neon-table">
+          <thead>
+            <tr>
+              <th>IP</th>
+              <th>Attack</th>
+              <th>Time</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="blocked-log"></tbody>
+        </table>
+      </div>
+
+      <div class="blocked-right">
+        <h3>Blocked IP Insights</h3>
+        <p>
+          This panel displays all IP addresses that have been automatically blocked
+          by the AI firewall in real time. Each entry represents a verified malicious
+          source attempting to compromise the network.
+        </p>
+        <p>
+          The system continuously analyzes traffic behavior, identifies threat patterns,
+          and instantly enforces blocking rules to prevent further intrusion attempts.
+          This ensures attacks are neutralized before reaching critical assets.
+        </p>
+        <button class="traffic-btn">Work with Us</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ✅ ZERO TRUST LOGS -->
+  <section class="section zt-section">
+    <div class="zt-wrapper glass">
+
+      <div class="zt-left">
+        <h2>Zero Trust Access Logs</h2>
+        <table class="table neon-table">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Request</th>
+              <th>Decision</th>
+              <th>Reason</th>
+            </tr>
+          </thead>
+          <tbody id="zt-log"></tbody>
+        </table>
+      </div>
+
+      <div class="zt-right">
+        <h3>Zero Trust Access Log Insights</h3>
+        <p>
+          This section records every access request evaluated under the Zero Trust
+          security model. No user or device is trusted by default—each request is verified
+          based on identity, behavior, and security posture.
+        </p>
+        <p>
+          The system continuously validates access permissions in real time, allowing
+          only legitimate users while instantly denying suspicious behavior. This ensures
+          strict least-privilege access and prevents lateral movement inside the network.
+        </p>
+        <button class="traffic-btn">Work with Us</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ✅ MAIN JS -->
+  <script type="module" src="main.js"></script>
+</body>
+</html>

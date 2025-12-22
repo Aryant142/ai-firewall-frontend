@@ -1,0 +1,608 @@
+/* =============================== */
+/* ✅ GLOBAL RESET */
+/* =============================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  color: white;
+  font-family: system-ui, sans-serif;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* =============================== */
+/* ✅ SPLINE BACKGROUND */
+/* =============================== */
+
+#spline-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* =============================== */
+/* ✅ TOP NAV BAR */
+/* =============================== */
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.logo {
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.nav-links button {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-left: 12px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+.nav-links .primary {
+  background: white;
+  color: black;
+  font-weight: 600;
+}
+
+/* =============================== */
+/* ✅ GLASS BASE */
+/* =============================== */
+
+.glass {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.65);
+  border-radius: 22px;
+  padding: 26px 34px;
+}
+
+/* =============================== */
+/* ✅ HERO SECTION */
+/* =============================== */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 80px;
+  position: relative;
+  z-index: 6;
+}
+
+.hero-left {
+  max-width: 440px;
+}
+
+.hero-left h1 {
+  font-size: 4.2rem;
+  line-height: 1.05;
+  margin-bottom: 16px;
+  text-shadow:
+    0 0 10px rgba(0,255,255,0.4),
+    0 0 25px rgba(0,255,255,0.18);
+}
+
+.hero-left p {
+  opacity: 0.9;
+}
+
+.hero-right {
+  max-width: 380px;
+  line-height: 1.6;
+}
+
+.hero-bottom {
+  position: absolute;
+  bottom: -40px;
+  left: 60px;
+  width: 340px;
+}
+
+/* =============================== */
+/* ✅ DEFAULT SECTIONS */
+/* =============================== */
+
+.section {
+  min-height: 100vh;
+  width: 100%;
+  padding: 120px 80px;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 2.6rem;
+  margin-bottom: 25px;
+  text-shadow: 0 0 12px rgba(0,255,255,0.25);
+}
+
+.panel {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 25px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(16px);
+  border-radius: 18px;
+  padding: 2rem;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+/* =============================== */
+/* ✅ TABLE DESIGN */
+/* =============================== */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.table th,
+.table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.table th {
+  color: #38bdf8;
+}
+
+/* =============================== */
+/* ✅ STATUS COLORS */
+/* =============================== */
+
+.allowed {
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.blocked {
+  color: #ff4d6d;
+  font-weight: 600;
+}
+
+/* =============================== */
+/* ✅ REVEAL ANIMATION */
+/* =============================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================================================= */
+/* ✅✅ LIVE TRAFFIC PREMIUM SECTION ✅✅ */
+/* ================================================= */
+
+.traffic-section {
+  padding: 140px 80px;
+}
+
+.traffic-wrapper {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  width: 100%;
+  max-width: 1300px;
+  background: linear-gradient(
+    145deg,
+    rgba(180, 70, 255, 0.22),
+    rgba(60, 20, 120, 0.14)
+  );
+  border-radius: 28px;
+  padding: 36px;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow:
+    0 0 60px rgba(170, 70, 255, 0.35),
+    0 30px 80px rgba(0,0,0,0.65);
+}
+
+.traffic-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  padding: 20px 40px;
+  max-width: 480px;
+}
+
+.traffic-right h3 {
+  font-size: 2.1rem;
+  margin-bottom: 22px;
+  color: #f5d0fe;
+}
+
+.traffic-btn {
+  margin-top: 22px;
+  width: fit-content;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background: white;
+  color: black;
+  transition: 0.25s ease;
+  align-self: flex-start;
+}
+
+.traffic-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255,255,255,0.5);
+}
+
+/* ================================================= */
+/* ✅✅✅ THREAT DETECTION PANEL (FIXED) ✅✅✅ */
+/* ================================================= */
+
+.threat-hero {
+  min-height: 100vh;
+  width: 100%;
+  padding: 140px 80px;
+  position: relative;
+  z-index: 5;
+
+  /* ✅ NO GLASS ON FULL SECTION */
+  background: transparent;
+}
+
+/* ✅ ONLY THIS BOX HAS PURPLE GLASS */
+.threat-wrapper {
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+
+  padding: 80px 70px;
+  border-radius: 28px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(180, 70, 255, 0.22),
+    rgba(60, 20, 120, 0.14)
+  );
+
+  border: 1px solid rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 0 60px rgba(170, 70, 255, 0.35),
+    0 30px 80px rgba(0,0,0,0.65);
+}
+
+.threat-hero h1 {
+  font-size: 5rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.threat-subtitle {
+  max-width: 760px;
+  font-size: 1.2rem;
+  opacity: 0.9;
+  line-height: 1.8;
+  margin-bottom: 80px;
+}
+
+.threat-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1100px;
+}
+
+.threat-card {
+  padding: 40px 30px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,0.5),
+    0 0 30px rgba(170, 70, 255, 0.4);
+}
+
+.threat-card h2 {
+  font-size: 4.4rem;
+  margin-bottom: 12px;
+}
+
+.threat-card span {
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+/* =============================== */
+/* ✅ RESPONSIVE */
+/* =============================== */
+
+@media (max-width: 1000px) {
+  .hero {
+    flex-direction: column;
+    padding-top: 140px;
+    text-align: center;
+  }
+
+  .traffic-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .threat-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================================= */
+/* ✅✅ BLOCKED IP + ZERO TRUST PREMIUM LAYOUT ✅✅ */
+/* ================================================= */
+
+.blocked-wrapper,
+.zt-wrapper {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  width: 100%;
+  max-width: 1300px;
+  padding: 50px;
+  margin: auto;
+
+  background: linear-gradient(
+    145deg,
+    rgba(180, 70, 255, 0.22),
+    rgba(60, 20, 120, 0.14)
+  );
+
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 0 60px rgba(170, 70, 255, 0.35),
+    0 30px 80px rgba(0,0,0,0.65);
+}
+
+.blocked-left h2,
+.zt-left h2 {
+  text-align: left;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.blocked-right,
+.zt-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  padding: 10px 20px;
+}
+
+.blocked-right h3,
+.zt-right h3 {
+  font-size: 2rem;
+  margin-bottom: 18px;
+  color: #f5d0fe;
+}
+
+.blocked-right p,
+.zt-right p {
+  opacity: 0.9;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+/* ✅ MOBILE STACKING */
+@media (max-width: 1000px) {
+  .blocked-wrapper,
+  .zt-wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .blocked-right,
+  .zt-right {
+    text-align: center;
+  }
+}
+
+/* ✅ EDGE + CHROME: HIDE SCROLLBAR BUT KEEP TOUCHPAD SCROLLING */
+
+html, body {
+  overflow-y: scroll;        /* allows scrolling */
+  -ms-overflow-style: none;  /* hides scrollbar in Edge/IE */
+  scrollbar-width: none;     /* hides scrollbar in Firefox */
+}
+
+/* Hide scrollbar in Edge/Chrome/Safari */
+body::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent;
+}
+
+.traffic-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 16px 0 10px;
+  align-items: center;
+}
+
+.traffic-controls input,
+.traffic-controls select {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #fff;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.traffic-controls input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* =============================== */
+/* ✅ SEVERITY BADGES */
+/* =============================== */
+
+.severity {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  margin-left: 6px;
+}
+
+.sev-low {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+}
+
+.sev-medium {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.sev-high {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.sev-critical {
+  background: rgba(168, 85, 247, 0.2);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+}
+
+/* =============================== */
+/* ✅ ALERT POPUP */
+/* =============================== */
+
+.soc-alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  padding: 16px 18px;
+  border-radius: 14px;
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  z-index: 9999;
+  animation: slideIn 0.4s ease;
+}
+
+.soc-alert.hide {
+  animation: slideOut 0.4s ease forwards;
+}
+
+.soc-alert-icon {
+  font-size: 1.5rem;
+}
+
+.soc-alert-text {
+  font-size: 0.9rem;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(120%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOut {
+  to { transform: translateX(120%); opacity: 0; }
+}
+
+/* =============================== */
+/* Pause / Export / Lock controls  */
+/* =============================== */
+
+.traffic-controls .traffic-btn {
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/* Hidden utility */
+.hidden { display: none !important; }
+
+/* Lock overlay */
+.locked-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.85));
+  z-index: 99999;
+}
+
+.locked-overlay.hidden { display: none; }
+
+.locked-card {
+  width: 420px;
+  max-width: 92%;
+  background: rgba(12,8,30,0.96);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 40px 120px rgba(0,0,0,0.8), 0 0 40px rgba(168,85,247,0.2);
+}
+
+.locked-card h2 { margin-bottom: 10px; color: #f3e8ff; }
+.locked-card p { opacity: 0.9; margin-bottom: 18px; }
+
+/* small responsive tweak */
+@media (max-width: 800px) {
+  .traffic-controls { gap: 8px; }
+  .locked-card { padding: 20px; }
+}
