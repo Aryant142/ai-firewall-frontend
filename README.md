@@ -21,7 +21,7 @@ By introducing Specmatic, the codebase now:
 Below is the structured breakdown of the newly added files, sorted by functional roles and how they connect with one another in the validation pipeline.
 
 ```mermaid
-%%{init: {'themeVariables': {'fontSize': '20px', 'fontFamily': 'Arial, sans-serif'}}}%%
+%%{init: {'themeVariables': {'fontSize': '50px', 'fontFamily': 'Arial, sans-serif'}}}%%
 graph TD
     subgraph Spec Pre-processing
         fix_spec["specmatic_test/fix_spec.py"]
